@@ -38,3 +38,10 @@
     font-family: 'Playfair Display', serif;
   }
 }
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+  }
+}

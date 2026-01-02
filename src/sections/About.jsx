@@ -1,3 +1,3 @@
-export const Hero = () => {
+export const About = () => {
   return <section></section>;
 };
