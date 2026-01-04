@@ -25,7 +25,7 @@ const highlights = [
 
 export const About = () => {
   return (
-    <section id="about" className="relative overflow-hidden py-20 md:py-28 lg:py-32">
+    <section id="about" className="relative overflow-hidden py-32">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
