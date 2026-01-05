@@ -21,7 +21,7 @@ const projects = [
     github: 'https://github.com/Ashishjha013/production-ecommerce-api',
   },
   {
-    title: 'Task Management System',
+    title: 'Task Management System (Backend-Focused)',
     description:
       'A production-grade backend system for managing tasks with secure authentication, role-based access control, caching, and analytics. Designed with clean architecture and real-world backend best practices.',
     image: '/projects/project3.png',
@@ -44,12 +44,15 @@ export const Projects = () => {
             Featured Work
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Projects that
-            <span className="font-serif italic font-normal text-white"> make an impact.</span>
+            Projects built to
+            <span className="font-serif italic font-normal text-white">
+              {' '}
+              learn real-world development.
+            </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            A selection of my recent work, from complex web applications to innovative tools that
-            solve real-world problems.
+            A selection of my recent projects built to practice real-world backend and full-stack
+            development concepts.
           </p>
         </div>
         {/* Projects Grid */}
@@ -118,7 +121,7 @@ export const Projects = () => {
           ))}
         </div>
         {/* View all projects */}
-        <div className='text-center mt-12 animate-fade-in animation-delay-500'>
+        <div className="text-center mt-12 animate-fade-in animation-delay-500">
           <AnimatedBorderButton>
             View All Projects
             <ArrowUpRight className="w-5 h-5" />

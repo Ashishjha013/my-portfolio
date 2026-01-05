@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button';
 import { ArrowRight, ChevronDown, Github, Linkedin, Twitter, Download } from 'lucide-react';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
+import FloatingDots from '@/components/FloatingDots';
 
 const skills = [
   'JavaScript',
@@ -22,127 +23,144 @@ const skills = [
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Bg */}
+      {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.jpg"
-          alt="Hero image"
+          src="/hero-bg.png"
+          alt="Hero background"
           className="w-full h-full object-cover opacity-40"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background" />
 
-      {/* Green Dots */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            className="absolute w-1.5 h-1.5 rounded-full opacity-60"
-            style={{
-              backgroundColor: '#20B2A6',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${15 + Math.random() * 15}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background" />
+
+      {/* Canvas Floating Dots */}
+      <FloatingDots
+        count={300}
+        minRadius={0.4}
+        maxRadius={1.4}
+        minSpeed={0.15}
+        maxSpeed={0.6}
+        className="absolute inset-0"
+      />
 
       {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
+          {/* Left Column */}
           <div className="space-y-8">
+            {/* Badge */}
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Full-Stack Developer • Node Specialist
+                Full-Stack Developer • Backend-Focused (MERN)
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digitals</span>
+              <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in animation-delay-100">
+                Building <span className="text-primary glow-text">real-world</span>
                 <br />
-                experiences with
+                web applications
                 <br />
-                <span className="font-serif italic font-normal text-white">precision</span>
+                <span className="font-serif italic font-normal text-white">
+                  with clean logic and scalable systems.
+                </span>
               </h1>
-              <p className="next-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                I’m a full-stack developer with a strong focus on building clean, logical, and
-                real-world web applications. I work across both frontend and backend using
-                JavaScript, React, Node.js, Express, and databases like MongoDB/SQL.
+
+              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
+                I’m a backend-focused full-stack developer who builds secure APIs, authentication
+                systems, and scalable backend applications using Node.js, Express, and MongoDB —
+                with modern React frontends.
               </p>
             </div>
 
-            {/* CTAs */}
+            {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
               <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5 " />
+                Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
+
               <AnimatedBorderButton>
                 <Download className="w-5 h-5" />
                 Download CV
               </AnimatedBorderButton>
             </div>
+
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
-              <span className="text-sm text-muted-foreground">Follow me: </span>
+              <span className="text-sm text-muted-foreground">Follow me:</span>
+
               {[
-                { icon: Github, href: 'https://github.com/ashishjha013' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
-                { icon: Twitter, href: 'https://x.com/aashishjha01' },
+                {
+                  icon: Github,
+                  href: 'https://github.com/ashishjha013',
+                },
+                {
+                  icon: Linkedin,
+                  href: 'https://www.linkedin.com/in/ashishjha13/',
+                },
+                {
+                  icon: Twitter,
+                  href: 'https://x.com/aashishjha01',
+                },
               ].map((social, idx) => (
                 <a
-                  href={social.href}
                   key={idx}
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300 "
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
-                  {<social.icon className="w-5 h-5" />}
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
           </div>
-          {/* Right Column - Profile Image */}
+
+          {/* Right Column */}
           <div className="relative animate-fade-in animation-delay-300">
-            {/* Profile Image */}
             <div className="relative max-w-md mx-auto">
+              {/* Glow */}
               <div
-                className="absolute inset-0 
-              rounded-3xl bg-linear-to-br 
-              from-primary/30 via-transparent 
-              to-primary/10 blur-2xl animate-pulse"
+                className="absolute inset-0 rounded-3xl bg-linear-to-br
+                from-primary/30 via-transparent to-primary/10
+                blur-2xl animate-pulse"
               />
+
+              {/* Image Card */}
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
+                  src="/profile-photo.png"
                   alt="Ashish Jha"
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 
-                {/* Floating Badge */}
+                {/* Availability Badge */}
                 <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
                     <span className="text-sm font-medium">Available for work</span>
                   </div>
                 </div>
-                {/* Stats Badge */}
-                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">0</div>
-                  <div className="text-xs text-muted-foreground">Years Exp.</div>
+
+                {/* Experience Badge */}
+                <div className="absolute -top-2 -left-2 glass rounded-xl px-3 py-2 animate-float animation-delay-500">
+                  <div className="text-sm font-semibold text-primary">Project-Based Experience</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Skills Section */}
+        {/* Skills Marquee */}
         <div className="mt-20 animate-fade-in animation-delay-600">
           <p className="text-sm text-muted-foreground mb-6 text-center">
             Technologies I work with:
           </p>
+
           <div className="relative overflow-hidden">
             <div className="flex animate-marquee">
               {[...skills, ...skills].map((skill, idx) => (
@@ -157,10 +175,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 
-      animate-fade-in animation-delay-800"
-      >
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
         <a
           href="#about"
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"

@@ -1,26 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
+  --color-background: #0b0f14;
+  --color-foreground: #e6eaf0;
 
-  --color-card: #141a1f;
+  --color-card: #121826;
 
-  --color-primary: #20b2a6;
+  --color-primary: #2563eb;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
+  --color-secondary: #1a2233;
+  --color-secondary-foreground: #60a5fa;
 
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
+  --color-muted: #1f2937;
+  --color-muted-foreground: #9ca3af;
 
-  --color-border: #242b32;
+  --color-border: #273244;
 
   --radius: 0.75rem;
 
-  --color-highlight: #f5a623;
-  --color-surface: #1a2329;
+  --color-highlight: #60a5fa;
+  --color-surface: #0f172a;
 }
 
 @layer base {
@@ -57,12 +57,12 @@
   }
 
   .glow-text {
-    text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
+    text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 55%, transparent);
   }
 
   .glow-border {
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent),
-      inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+    box-shadow: 0 0 22px color-mix(in srgb, var(--color-primary) 25%, transparent),
+      inset 0 0 22px color-mix(in srgb, var(--color-primary) 8%, transparent);
   }
 }
 
@@ -169,13 +169,13 @@
   }
 
   .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
+    background-color: color-mix(in srgb, #2563eb 15%, transparent);
     backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+    box-shadow: 0 0 22px color-mix(in srgb, #2563eb 25%, transparent);
   }
 
   .timeline-glow {
-    box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+    box-shadow: 0 0 45px color-mix(in srgb, var(--color-primary) 40%, transparent),
+      0 0 90px color-mix(in srgb, var(--color-primary) 30%, transparent);
   }
 }

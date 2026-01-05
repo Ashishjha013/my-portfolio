@@ -4,7 +4,7 @@ const experiences = [
     role: 'Full-Stack Developer (Project-Based)',
     company: 'Self-Initiated Projects',
     description:
-      'Designed and built production-grade full-stack applications focusing on backend APIs authentication, and scalable architecture. Worked with real-world features like JWT auth, role-based access, pagination, and deployment.',
+      'Built multiple backend-focused and full-stack projects to practice real-world development workflows including authentication, APIs, database design, and pagination.',
     technologies: ['Node.js', 'Express', 'MongoDB', 'React', 'Tailwind CSS', 'JWT', 'REST APIs'],
     current: true,
   },
@@ -32,16 +32,19 @@ export const Experience = () => {
            mt-4 mb-6 animate-fade-in animation-delay-100
             text-secondary-foreground"
           >
-            Experience that{' '}
-            <span className="font-serif italic font-normal text-white"> speaks volumes.</span>
+            Learning through projects{' '}
+            <span className="font-serif italic font-normal text-white">
+              {' '}
+              and continuous improvement.
+            </span>
           </h2>
 
           <p
             className="text-muted-foreground
            animate-fade-in animation-delay-200"
           >
-            A timeline of my professional growth, from curious beginner to senior engineer leading
-            teams and building products at scale.
+            A timeline of my learning journey in backend and full-stack development, focused on
+            building real projects and strengthening core engineering skills.
           </p>
         </div>
 
