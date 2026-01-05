@@ -36,7 +36,7 @@ export const Testimonials = () => {
     setActiveIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden">
+    <section id="testimonials" className="py-24 relative overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2
        w-200 h-200 bg-primary/5
@@ -74,15 +74,15 @@ export const Testimonials = () => {
         </div>
 
         {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="relative">
             {/* Main Testimonial */}
-            <div className="glass p-8 rounded-3xl md:p-12 glow-border animate-fade-in animation-delay-200">
+            <div className="glass p-6 rounded-2xl md:p-8 glow-border animate-fade-in animation-delay-200">
               <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                 <Quote className="w-6 h-6 text-primary-foreground" />
               </div>
 
-              <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 pt-4">
+              <blockquote className="text-lg md:text-xl font-medium leading-relaxed mb-6 pt-4">
                 "{testimonials[activeIdx].quote}"
               </blockquote>
 

@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -18,20 +17,19 @@ export const NavBar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
         isScrolled ? 'glass-strong py-3' : 'bg-transparent py-5'
-      }  z-50`}
+      } z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo Section */}
-        <a href="#" className="text-xl font-bold tracking-tight hover:text-primary">
+        {/* Logo */}
+        <a href="#top" className="text-xl font-bold tracking-tight hover:text-primary">
           Ashish Kumar Jha<span className="text-primary">.</span>
         </a>
 
@@ -40,8 +38,8 @@ export const NavBar = () => {
           <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
             {navLinks.map((link, idx) => (
               <a
-                href={link.href}
                 key={idx}
+                href={link.href}
                 className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
               >
                 {link.label}
@@ -50,16 +48,18 @@ export const NavBar = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
+        {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button size="sm">Contact Me</Button>
+          <a href="#contact">
+            <Button size="sm">Contact Me</Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           type="button"
           aria-label="Open menu"
-          className="md:hidden p-2 text-foreground cursor:pointer"
+          className="md:hidden p-2 text-foreground"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -72,8 +72,8 @@ export const NavBar = () => {
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link, idx) => (
               <a
-                href={link.href}
                 key={idx}
+                href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg text-muted-foreground hover:text-foreground py-2"
               >
@@ -81,7 +81,9 @@ export const NavBar = () => {
               </a>
             ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>Contact Me</Button>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button>Contact Me</Button>
+            </a>
           </div>
         </div>
       )}

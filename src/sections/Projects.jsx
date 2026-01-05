@@ -6,7 +6,7 @@ const projects = [
     title: 'Wanderlust – Travel Listings Platform',
     description:
       'A travel listing web application where users can explore destinations and manage listings. Focused on CRUD operations, data relationships, authentication, and clean MVC-based backend design.',
-    image: '/projects/project1.png',
+    image: '/projects/project1.jpg',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'REST API', 'MVC'],
     link: 'https://wanderlust-oxsv.onrender.com/listings',
     github: 'https://github.com/Ashishjha013/Wanderlust',
@@ -15,7 +15,7 @@ const projects = [
     title: 'E-Commerce Web Application',
     description:
       'A full-stack e-commerce platform allowing users to browse products, manage carts, place orders, and authenticate securely. Built with scalable backend APIs and a responsive frontend interface.',
-    image: '/projects/project2.png',
+    image: '/projects/project2.jpg',
     tags: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
     link: 'https://production-ecommerce-api.onrender.com/',
     github: 'https://github.com/Ashishjha013/production-ecommerce-api',
@@ -24,7 +24,7 @@ const projects = [
     title: 'Task Management System (Backend-Focused)',
     description:
       'A production-grade backend system for managing tasks with secure authentication, role-based access control, caching, and analytics. Designed with clean architecture and real-world backend best practices.',
-    image: '/projects/project3.png',
+    image: '/projects/project3.jpg',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT Auth', 'Redis', 'REST API'],
     link: 'https://task-manager-6bu9.onrender.com/',
     github: 'https://github.com/Ashishjha013/task-manager-rest-api',
@@ -72,7 +72,7 @@ export const Projects = () => {
                 />
                 <div
                   className="absolute inset-0 
-                bg-gradient-to-t from-card via-card/50
+                bg-linear-to-t from-card via-card/50
                  to-transparent opacity-60"
                 />
                 {/* Overlay Links */}
@@ -122,10 +122,12 @@ export const Projects = () => {
         </div>
         {/* View all projects */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
-            View All Projects
-            <ArrowUpRight className="w-5 h-5" />
-          </AnimatedBorderButton>
+          <a href="https://github.com/ashishjha013" target="_blank" rel="noopener noreferrer">
+            <AnimatedBorderButton>
+              View All Projects
+              <ArrowUpRight className="w-5 h-5" />
+            </AnimatedBorderButton>
+          </a>
         </div>
       </div>
     </section>

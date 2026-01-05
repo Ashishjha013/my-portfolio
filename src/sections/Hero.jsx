@@ -23,7 +23,7 @@ const skills = [
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/hero-bg.png"
@@ -32,10 +32,10 @@ export const Hero = () => {
         />
       </div>
 
-      {/* Dark Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background" />
 
-      {/* Canvas Floating Dots */}
+      {/* Floating Dots */}
       <FloatingDots
         count={300}
         minRadius={0.4}
@@ -48,7 +48,7 @@ export const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column */}
+          {/* LEFT */}
           <div className="space-y-8">
             {/* Badge */}
             <div className="animate-fade-in">
@@ -58,9 +58,9 @@ export const Hero = () => {
               </span>
             </div>
 
-            {/* Headline */}
+            {/* Heading */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in animation-delay-100">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight animate-fade-in animation-delay-100">
                 Building <span className="text-primary glow-text">real-world</span>
                 <br />
                 web applications
@@ -77,35 +77,35 @@ export const Hero = () => {
               </p>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
+              <a href="#contact">
+                <Button size="lg">
+                  Contact Me <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
 
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
-              </AnimatedBorderButton>
+              <a
+                href="/Ashish_Kumar_Jha_Backend_Developer_Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AnimatedBorderButton>
+                  <Download className="w-5 h-5" />
+                  Download CV
+                </AnimatedBorderButton>
+              </a>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+            {/* SOCIAL ICONS — NO BLUR FADE */}
+            <div className="flex items-center gap-4 animate-fade-in-no-blur animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me:</span>
 
               {[
-                {
-                  icon: Github,
-                  href: 'https://github.com/ashishjha013',
-                },
-                {
-                  icon: Linkedin,
-                  href: 'https://www.linkedin.com/in/ashishjha13/',
-                },
-                {
-                  icon: Twitter,
-                  href: 'https://x.com/aashishjha01',
-                },
+                { icon: Github, href: 'https://github.com/ashishjha013' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
+                { icon: Twitter, href: 'https://x.com/aashishjha01' },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -120,17 +120,11 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column */}
+          {/* RIGHT */}
           <div className="relative animate-fade-in animation-delay-300">
             <div className="relative max-w-md mx-auto">
-              {/* Glow */}
-              <div
-                className="absolute inset-0 rounded-3xl bg-linear-to-br
-                from-primary/30 via-transparent to-primary/10
-                blur-2xl animate-pulse"
-              />
+              <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
 
-              {/* Image Card */}
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
                   src="/profile-photo.png"
@@ -138,7 +132,6 @@ export const Hero = () => {
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 
-                {/* Availability Badge */}
                 <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
@@ -146,7 +139,6 @@ export const Hero = () => {
                   </div>
                 </div>
 
-                {/* Experience Badge */}
                 <div className="absolute -top-2 -left-2 glass rounded-xl px-3 py-2 animate-float animation-delay-500">
                   <div className="text-sm font-semibold text-primary">Project-Based Experience</div>
                 </div>
@@ -155,7 +147,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Skills Marquee */}
+        {/* Skills */}
         <div className="mt-20 animate-fade-in animation-delay-600">
           <p className="text-sm text-muted-foreground mb-6 text-center">
             Technologies I work with:
@@ -175,11 +167,11 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
           <ChevronDown className="w-6 h-6 animate-bounce" />
