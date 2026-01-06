@@ -22,7 +22,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight">
+            <a href="#" className="text-xl font-bold tracking-tight  hover:text-primary">
               Ashish Kumar Jha<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
@@ -50,6 +50,8 @@ export const Footer = () => {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
               >
                 <social.icon className="w-5 h-5" />
