@@ -53,7 +53,7 @@ export const Hero = () => {
             {/* Badge */}
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 Full-Stack Developer • Backend-Focused (MERN)
               </span>
             </div>
@@ -134,7 +134,7 @@ export const Hero = () => {
 
                 <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-sm font-medium">Available for work</span>
                   </div>
                 </div>
