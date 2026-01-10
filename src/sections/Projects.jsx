@@ -52,11 +52,11 @@ export const Projects = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
             <div key={idx} className="group glass rounded-2xl overflow-hidden">
               {/* Image */}
-              <div className="relative overflow-hidden aspect-video">
+              <div className="relative overflow-hidden aspect-[16/10] md:aspect-[16/9]">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -109,7 +109,7 @@ export const Projects = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6 space-y-4">
+              <div className="p-4 space-y-3">
                 <h3
                   className="
                     text-xl font-semibold
@@ -121,13 +121,13 @@ export const Projects = () => {
                   {project.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm">{project.description}</p>
+                <p className="text-muted-foreground text-sm line-clamp-3">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className="px-4 py-1.5 rounded-full bg-surface text-sm border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all"
+                      className="px-3 py-1 rounded-full bg-surface text-sm border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all"
                     >
                       {tag}
                     </span>
