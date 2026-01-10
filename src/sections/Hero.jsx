@@ -112,7 +112,7 @@ export const Hero = () => {
                 />
 
                 {/* Social Links (BOTTOM CENTER) */}
-                <div className="absolute -bottom-18 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-2 flex items-center gap-3">
+                <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-2 flex items-center gap-3">
                   {[
                     { icon: Github, href: 'https://github.com/ashishjha013' },
                     { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
@@ -148,7 +148,7 @@ export const Hero = () => {
         </div>
 
         {/* Skills */}
-        <div className="mt-20 animate-fade-in animation-delay-600">
+        <div className="mt-24 animate-fade-in animation-delay-600">
           <p className="text-sm text-muted-foreground mb-6 text-center">
             Technologies I work with:
           </p>
