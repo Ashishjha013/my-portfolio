@@ -97,27 +97,6 @@ export const Hero = () => {
                 </AnimatedBorderButton>
               </a>
             </div>
-
-            {/* SOCIAL ICONS — NO BLUR FADE */}
-            <div className="flex items-center gap-4 animate-fade-in-no-blur animation-delay-400">
-              <span className="text-sm text-muted-foreground">Follow me:</span>
-
-              {[
-                { icon: Github, href: 'https://github.com/ashishjha013' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
-                { icon: Twitter, href: 'https://x.com/aashishjha01' },
-              ].map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* RIGHT */}
@@ -125,13 +104,33 @@ export const Hero = () => {
             <div className="relative max-w-md mx-auto">
               <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
 
-              <div className="relative glass rounded-3xl p-2 glow-border">
+              <div className="relative glass rounded-3xl p-2 glow-border max-w-[380px] mx-auto">
                 <img
                   src="/profile-photo.png"
                   alt="Ashish Jha"
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 
+                {/* Social Links (BOTTOM CENTER) */}
+                <div className="absolute -bottom-18 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-2 flex items-center gap-3">
+                  {[
+                    { icon: Github, href: 'https://github.com/ashishjha013' },
+                    { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
+                    { icon: Twitter, href: 'https://x.com/aashishjha01' },
+                  ].map((social, idx) => (
+                    <a
+                      key={idx}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full hover:bg-primary/10 hover:text-primary transition-all"
+                    >
+                      <social.icon className="w-5 h-5" />
+                    </a>
+                  ))}
+                </div>
+
+                {/* Availability Badge */}
                 <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
@@ -139,6 +138,7 @@ export const Hero = () => {
                   </div>
                 </div>
 
+                {/* Experience Badge */}
                 <div className="absolute -top-2 -left-2 glass rounded-xl px-3 py-2 animate-float animation-delay-500">
                   <div className="text-sm font-semibold text-primary">Project-Based Experience</div>
                 </div>
