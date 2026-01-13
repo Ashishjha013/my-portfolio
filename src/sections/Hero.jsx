@@ -112,7 +112,7 @@ export const Hero = () => {
                 />
 
                 {/* Social Links (BOTTOM CENTER) */}
-                <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-2 flex items-center gap-3">
+                <div className="absolute -bottom-18 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-2 flex items-center gap-5">
                   {[
                     { icon: Github, href: 'https://github.com/ashishjha013' },
                     { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
@@ -123,7 +123,7 @@ export const Hero = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-full hover:bg-primary/10 hover:text-primary transition-all"
+                      className="p-1 rounded-full hover:bg-primary/10 hover:text-primary transition-all"
                     >
                       <social.icon className="w-5 h-5" />
                     </a>

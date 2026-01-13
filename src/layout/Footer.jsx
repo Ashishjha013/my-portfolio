@@ -23,7 +23,7 @@ export const Footer = () => {
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <a href="#" className="text-xl font-bold tracking-tight  hover:text-primary">
-              Ashish Kumar Jha<span className="text-primary">.</span>
+              Ashish Kumar<span className="text-primary"> Jha</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
               © {currentYear} Ashish Kumar Jha. All rights reserved.

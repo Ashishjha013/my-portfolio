@@ -30,7 +30,7 @@ export const NavBar = () => {
       <nav className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#top" className="text-xl font-bold tracking-tight hover:text-primary">
-          Ashish Kumar Jha<span className="text-primary">.</span>
+          Ashish Kumar<span className="text-primary"> Jha</span>
         </a>
 
         {/* Desktop Nav */}
