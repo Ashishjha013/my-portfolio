@@ -1,6 +1,6 @@
 const experiences = [
   {
-    period: '2024 – Present',
+    period: '2025 – Present',
     role: 'Full-Stack Developer (Project-Based)',
     company: 'Self-Initiated Projects',
     description:
