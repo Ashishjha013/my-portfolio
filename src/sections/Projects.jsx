@@ -56,7 +56,7 @@ export const Projects = () => {
           {projects.map((project, idx) => (
             <div key={idx} className="group glass rounded-2xl overflow-hidden">
               {/* Image */}
-              <div className="relative overflow-hidden aspect-[16/10] md:aspect-[16/9]">
+              <div className="relative overflow-hidden aspect-16/10 md:aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
