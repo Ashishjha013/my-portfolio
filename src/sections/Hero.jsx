@@ -2,6 +2,7 @@ import { Button } from '@/components/Button';
 import { ArrowRight, ChevronDown, Github, Linkedin, Twitter, Download } from 'lucide-react';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 import FloatingDots from '@/components/FloatingDots';
+import AnimatedText from '@/components/AnimatedText';
 
 const skills = [
   'JavaScript',
@@ -60,8 +61,14 @@ export const Hero = () => {
 
             {/* Heading */}
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Building <span className="text-primary glow-text">real-world</span>
+              <h1 className="text-5xl lg:text-5xl font-bold leading-tight animate-fade-in animation-delay-100">
+                Building{' '}
+                <AnimatedText
+                  texts={['real-world', 'scalable', 'production-grade']}
+                  typingSpeed={85}
+                  deletingSpeed={45}
+                  pauseTime={1400}
+                />
                 <br />
                 web applications
                 <br />
@@ -104,18 +111,21 @@ export const Hero = () => {
             <div className="relative max-w-md mx-auto">
               <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
 
-              <div className="relative glass rounded-3xl p-2 glow-border max-w-[380px] mx-auto">
+              <div className="relative glass rounded-3xl p-2 glow-border max-w-95 mx-auto">
                 <img
                   src="/profile-photo.png"
                   alt="Ashish Jha"
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 
-                {/* Social Links (BOTTOM CENTER) */}
+                {/* Social Links */}
                 <div className="absolute -bottom-18 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-2 flex items-center gap-5">
                   {[
                     { icon: Github, href: 'https://github.com/ashishjha013' },
-                    { icon: Linkedin, href: 'https://www.linkedin.com/in/ashishjha13/' },
+                    {
+                      icon: Linkedin,
+                      href: 'https://www.linkedin.com/in/ashishjha13/',
+                    },
                     { icon: Twitter, href: 'https://x.com/aashishjha01' },
                   ].map((social, idx) => (
                     <a

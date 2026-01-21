@@ -1,13 +1,13 @@
 import { useEffect, useRef, useCallback } from 'react';
 
 const FloatingDots = ({
-  count = 380,
+  count = 140, // 🎯 Professional density
   color = 'rgba(96,165,250,0.6)',
-  glowColor = 'rgba(96,165,250,0.8)',
-  minRadius = 0.15,
-  maxRadius = 0.6,
-  minSpeed = 0.7,
-  maxSpeed = 1.8,
+  glowColor = 'rgba(96,165,250,0.85)', // ✨ richer glow
+  minRadius = 0.2,
+  maxRadius = 0.55,
+  minSpeed = 0.6,
+  maxSpeed = 1.6,
   className = 'absolute inset-0',
 }) => {
   const canvasRef = useRef(null);
@@ -15,27 +15,26 @@ const FloatingDots = ({
   const animationRef = useRef(null);
   const viewSizeRef = useRef({ width: 0, height: 0 });
 
+  // 🔹 Initialize dots
   const initDots = useCallback(
-    (width, height) => {
-      const dots = [];
-      for (let i = 0; i < count; i++) {
-        const radius = Math.random() * (maxRadius - minRadius) + minRadius + 0.5;
+    (width, height) =>
+      Array.from({ length: count }, () => {
+        const radius = Math.random() * (maxRadius - minRadius) + minRadius;
 
-        const speed = (Math.random() * (maxSpeed - minSpeed) + minSpeed) * 10;
+        const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
 
-        dots.push({
+        return {
           x: Math.random() * width,
           y: Math.random() * height,
-          radius, // 🔥 3× size
-          speed, // 🔥 3× speed
-          opacity: Math.random() * 0.5 + 0.3,
-        });
-      }
-      return dots;
-    },
+          radius,
+          speed,
+          opacity: Math.random() * 0.4 + 0.4, // 🔥 brighter core
+        };
+      }),
     [count, maxRadius, minRadius, maxSpeed, minSpeed]
   );
 
+  // 🎨 Draw dots with premium glow
   const drawDots = useCallback(
     (ctx, dots, width, height) => {
       ctx.clearRect(0, 0, width, height);
@@ -43,31 +42,35 @@ const FloatingDots = ({
       dots.forEach((dot) => {
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+
         ctx.fillStyle = color.replace(/[\d.]+\)$/g, `${dot.opacity})`);
-        ctx.shadowBlur = dot.radius * 8;
+
+        ctx.shadowBlur = dot.radius * (8 + dot.opacity * 4); // ✨ alive glow
         ctx.shadowColor = glowColor;
+
         ctx.fill();
       });
     },
     [color, glowColor]
   );
 
+  // ⬆️ Bottom → Top movement
   const updateDots = (dots, width, height) =>
     dots.map((dot) => {
-      const nextY = dot.y + dot.speed; // ⬇️ move down
+      const nextY = dot.y - dot.speed;
 
-      // if dot goes BELOW the screen
-      if (nextY > height + dot.radius * 2) {
+      if (nextY < -dot.radius * 2) {
         return {
           ...dot,
           x: Math.random() * width,
-          y: -dot.radius, // respawn at TOP
+          y: height + dot.radius,
         };
       }
 
       return { ...dot, y: nextY };
     });
 
+  // 📐 Resize handling (Hi-DPI safe)
   const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -90,8 +93,9 @@ const FloatingDots = ({
     dotsRef.current = initDots(width, height);
   }, [initDots]);
 
+  // ▶️ Animation loop
   useEffect(() => {
-    const frame = () => {
+    const animate = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
@@ -99,14 +103,15 @@ const FloatingDots = ({
       if (!ctx) return;
 
       const { width, height } = viewSizeRef.current;
+
       dotsRef.current = updateDots(dotsRef.current, width, height);
       drawDots(ctx, dotsRef.current, width, height);
 
-      animationRef.current = requestAnimationFrame(frame);
+      animationRef.current = requestAnimationFrame(animate);
     };
 
     handleResize();
-    animationRef.current = requestAnimationFrame(frame);
+    animationRef.current = requestAnimationFrame(animate);
     window.addEventListener('resize', handleResize);
 
     return () => {
