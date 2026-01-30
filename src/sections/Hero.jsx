@@ -55,16 +55,16 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                Full-Stack Developer • Backend-Focused (MERN)
+                Full-Stack Developer • Backend-Focused
               </span>
             </div>
 
             {/* Heading */}
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-5xl font-bold leading-tight animate-fade-in animation-delay-100">
+              <h1 className="text-3xl lg:text-5xl font-bold leading-tight animate-fade-in animation-delay-100">
                 Building{' '}
                 <AnimatedText
-                  texts={['real-world', 'scalable', 'production-grade']}
+                  texts={['real-world', 'scalable', 'efficient']}
                   typingSpeed={85}
                   deletingSpeed={45}
                   pauseTime={1400}
