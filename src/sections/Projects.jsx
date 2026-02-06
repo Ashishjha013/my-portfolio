@@ -6,7 +6,7 @@ const projects = [
     title: 'Wanderlust – Travel Listings Platform',
     description:
       'A travel listing web application where users can explore destinations and manage listings. Focused on CRUD operations, data relationships, authentication, and clean MVC-based backend design.',
-    image: '/projects/project1.jpg',
+    image: '/projects/wanderlust.png',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'REST API', 'MVC'],
     link: 'https://wanderlust-oxsv.onrender.com/listings',
     github: 'https://github.com/Ashishjha013/Wanderlust',
@@ -15,7 +15,7 @@ const projects = [
     title: 'E-Commerce Web Application',
     description:
       'A full-stack e-commerce platform allowing users to browse products, manage carts, place orders, and authenticate securely.',
-    image: '/projects/project2.jpg',
+    image: '/projects/e-commerce.png',
     tags: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
     link: 'https://production-ecommerce-api.onrender.com/',
     github: 'https://github.com/Ashishjha013/production-ecommerce-api',
@@ -24,7 +24,7 @@ const projects = [
     title: 'Task Management System (Backend-Focused)',
     description:
       'A production-grade backend system with secure authentication, RBAC, caching, and analytics.',
-    image: '/projects/project3.jpg',
+    image: '/projects/task-manager.png',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT Auth', 'Redis', 'REST API'],
     link: 'https://task-manager-6bu9.onrender.com/',
     github: 'https://github.com/Ashishjha013/task-manager-rest-api',
@@ -63,7 +63,7 @@ export const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                 />
 
-                <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" />
+                {/* <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" /> */}
 
                 {/* Overlay Buttons */}
                 <div
