@@ -12,7 +12,7 @@ const projects = [
     github: 'https://github.com/Ashishjha013/Wanderlust',
   },
   {
-    title: 'E-Commerce Web Application',
+    title: 'E-Commerce Web Application (Backend-Focused)',
     description:
       'A full-stack e-commerce platform allowing users to browse products, manage carts, place orders, and authenticate securely.',
     image: '/projects/e-commerce.png',
