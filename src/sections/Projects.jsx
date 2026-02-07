@@ -12,7 +12,8 @@ const projects = [
     github: 'https://github.com/Ashishjha013/Wanderlust',
   },
   {
-    title: 'E-Commerce Web Application (Backend-Focused)',
+    title: 'E-Commerce Web Application',
+    subtitle: '(Backend-Focused)',
     description:
       'A full-stack e-commerce platform allowing users to browse products, manage carts, place orders, and authenticate securely.',
     image: '/projects/e-commerce.png',
@@ -21,7 +22,8 @@ const projects = [
     github: 'https://github.com/Ashishjha013/production-ecommerce-api',
   },
   {
-    title: 'Task Management System (Backend-Focused)',
+    title: 'Task Management System',
+    subtitle: '(Backend-Focused)',
     description:
       'A production-grade backend system with secure authentication, RBAC, caching, and analytics.',
     image: '/projects/task-manager.png',
@@ -110,15 +112,16 @@ export const Projects = () => {
 
               {/* Content */}
               <div className="p-4 space-y-3">
-                <h3
-                  className="
-                    text-xl font-semibold
-                    md:text-foreground
-                    md:group-hover:text-primary
-                    transition-colors
-                  "
-                >
+                <h3 className="text-xl font-semibold md:text-foreground md:group-hover:text-primary transition-colors leading-snug">
                   {project.title}
+                  {project.subtitle && (
+                    <>
+                      <br />
+                      <span className="text-sm text-muted-foreground font-normal">
+                        {project.subtitle}
+                      </span>
+                    </>
+                  )}
                 </h3>
 
                 <p className="text-muted-foreground text-sm line-clamp-3">{project.description}</p>
