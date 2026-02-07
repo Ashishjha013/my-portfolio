@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useState } from 'react';
+import { ResponsivePicture } from '@/components/ResponsivePicture';
 
 const testimonials = [
   {
@@ -7,76 +8,55 @@ const testimonials = [
       'This portfolio represents my learning journey in backend and full-stack development, built through hands-on projects rather than tutorials alone.',
     author: 'Project-Based Learning',
     role: 'Backend & Full-Stack Development',
-    avatar: '/avatar/dev-avatar.jpg',
+    avatar: '/avatar/dev-avatar.webp',
   },
   {
     quote:
       'Each project here was created to understand how real-world applications work — including authentication, APIs, databases, and scalable backend logic.',
     author: 'Hands-On Experience',
     role: 'Node.js • Express • MongoDB • React',
-    avatar: '/avatar/dev-avatar.jpg',
+    avatar: '/avatar/dev-avatar.webp',
   },
   {
     quote:
       'Instead of focusing only on theory, I prioritize building, breaking, and improving applications to develop strong backend fundamentals.',
     author: 'Learning Philosophy',
     role: 'Clean Code • Real Projects',
-    avatar: '/avatar/dev-avatar.jpg',
+    avatar: '/avatar/dev-avatar.webp',
   },
 ];
 
 export const Testimonials = () => {
   const [activeIdx, setActiveIdx] = useState(0);
 
-  const next = () => {
-    setActiveIdx((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const previous = () => {
+  const next = () => setActiveIdx((prev) => (prev + 1) % testimonials.length);
+  const previous = () =>
     setActiveIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+
   return (
     <section id="testimonials" className="py-24 relative overflow-hidden">
-      <div
-        className="absolute top-1/2 left-1/2
-       w-200 h-200 bg-primary/5
-        rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
-      />
-      <div
-        className="container mx-auto 
-      px-6 relative z-10"
-      >
-        {/* Section Header */}
-        <div
-          className="text-center max-w-3xl 
-        mx-auto mb-16"
-        >
-          <span
-            className="text-secondary-foreground 
-          text-sm font-medium tracking-wider 
-          uppercase animate-fade-in"
-          >
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 w-200 h-200 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
             What This Portfolio Represents
           </span>
-          <h2
-            className="text-4xl md:text-5xl 
-          font-bold mt-4 mb-6 animate-fade-in 
-          animation-delay-100 text-secondary-foreground"
-          >
+
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             My learning mindset{' '}
-            <span
-              className="font-serif italic 
-            font-normal text-white"
-            >
+            <span className="font-serif italic font-normal text-white">
               and development philosophy.
             </span>
           </h2>
         </div>
 
-        {/* Testimonial Carousel */}
+        {/* Carousel */}
         <div className="max-w-3xl mx-auto">
           <div className="relative">
-            {/* Main Testimonial */}
+            {/* Card */}
             <div className="glass p-6 rounded-2xl md:p-8 glow-border animate-fade-in animation-delay-200">
               <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                 <Quote className="w-6 h-6 text-primary-foreground" />
@@ -87,11 +67,18 @@ export const Testimonials = () => {
               </blockquote>
 
               <div className="flex items-center gap-4">
-                <img
+                <ResponsivePicture
                   src={testimonials[activeIdx].avatar}
                   alt={testimonials[activeIdx].author}
+                  width={680}
+                  height={798}
+                  widths={[96, 128, 256, 512, 680]}
+                  sizes="56px"
+                  formats={['avif', 'webp']}
+                  loading="lazy"
                   className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20"
                 />
+
                 <div>
                   <div className="font-semibold">{testimonials[activeIdx].author}</div>
                   <div className="text-sm text-muted-foreground">
@@ -101,11 +88,12 @@ export const Testimonials = () => {
               </div>
             </div>
 
-            {/* Testimonials Navigation */}
+            {/* Navigation */}
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
-                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="Previous testimonial"
                 onClick={previous}
+                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
               >
                 <ChevronLeft />
               </button>
@@ -113,6 +101,8 @@ export const Testimonials = () => {
               <div className="flex gap-2">
                 {testimonials.map((_, idx) => (
                   <button
+                    key={idx}
+                    aria-label={`Go to testimonial ${idx + 1}`}
                     onClick={() => setActiveIdx(idx)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       idx === activeIdx
@@ -124,6 +114,7 @@ export const Testimonials = () => {
               </div>
 
               <button
+                aria-label="Next testimonial"
                 onClick={next}
                 className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
               >

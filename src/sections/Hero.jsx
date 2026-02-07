@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown, Github, Linkedin, Twitter, Download } from 'lu
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 import FloatingDots from '@/components/FloatingDots';
 import AnimatedText from '@/components/AnimatedText';
+import { ResponsivePicture } from '@/components/ResponsivePicture';
 
 const skills = [
   'JavaScript',
@@ -26,9 +27,16 @@ export const Hero = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img
-          src="/hero-bg.png"
+        <ResponsivePicture
+          src="/hero-bg.webp"
           alt="Hero background"
+          width={2752}
+          height={1536}
+          widths={[640, 960, 1200, 1600]}
+          sizes="100vw"
+          formats={['avif', 'webp']}
+          loading="eager"
+          fetchPriority="low"
           className="w-full h-full object-cover opacity-40"
         />
       </div>
@@ -112,9 +120,16 @@ export const Hero = () => {
               <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
 
               <div className="relative glass rounded-3xl p-2 glow-border max-w-95 mx-auto">
-                <img
-                  src="/profile-photo.png"
+                <ResponsivePicture
+                  src="/profile-photo.webp"
                   alt="Ashish Jha"
+                  width={1024}
+                  height={1024}
+                  widths={[640, 960]}
+                  sizes="(min-width: 1024px) 448px, (min-width: 768px) 384px, 80vw"
+                  formats={['webp']}
+                  loading="eager"
+                  fetchPriority="high"
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 

@@ -1,12 +1,13 @@
 import { ArrowUpRight, Github } from 'lucide-react';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
+import { ResponsivePicture } from '@/components/ResponsivePicture';
 
 const projects = [
   {
     title: 'Wanderlust – Travel Listings Platform',
     description:
-      'A travel listing web application where users can explore destinations and manage listings. Focused on CRUD operations, data relationships, authentication, and clean MVC-based backend design.',
-    image: '/projects/wanderlust.png',
+      'A travel listing web application where users can explore destinations and manage listings.',
+    image: '/projects/wanderlust.webp',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'REST API', 'MVC'],
     link: 'https://wanderlust-oxsv.onrender.com/listings',
     github: 'https://github.com/Ashishjha013/Wanderlust',
@@ -14,9 +15,8 @@ const projects = [
   {
     title: 'E-Commerce Web Application',
     subtitle: '(Backend-Focused)',
-    description:
-      'A full-stack e-commerce platform allowing users to browse products, manage carts, place orders, and authenticate securely.',
-    image: '/projects/e-commerce.png',
+    description: 'A full-stack e-commerce platform allowing users to browse products.',
+    image: '/projects/e-commerce.webp',
     tags: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
     link: 'https://production-ecommerce-api.onrender.com/',
     github: 'https://github.com/Ashishjha013/production-ecommerce-api',
@@ -24,9 +24,8 @@ const projects = [
   {
     title: 'Task Management System',
     subtitle: '(Backend-Focused)',
-    description:
-      'A production-grade backend system with secure authentication, RBAC, caching, and analytics.',
-    image: '/projects/task-manager.png',
+    description: 'A production-grade backend system with secure authentication and RBAC.',
+    image: '/projects/task-manager.webp',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT Auth', 'Redis', 'REST API'],
     link: 'https://task-manager-6bu9.onrender.com/',
     github: 'https://github.com/Ashishjha013/task-manager-rest-api',
@@ -59,13 +58,17 @@ export const Projects = () => {
             <div key={idx} className="group glass rounded-2xl overflow-hidden">
               {/* Image */}
               <div className="relative overflow-hidden aspect-16/10 md:aspect-video">
-                <img
+                <ResponsivePicture
                   src={project.image}
                   alt={project.title}
+                  width={1536}
+                  height={1024}
+                  widths={[640, 960, 1200]}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  formats={['avif', 'webp']}
+                  loading={idx === 0 ? 'eager' : 'lazy'}
                   className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                 />
-
-                {/* <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" /> */}
 
                 {/* Overlay Buttons */}
                 <div
@@ -76,7 +79,6 @@ export const Projects = () => {
                     transition-opacity duration-300
                   "
                 >
-                  {/* Live Link */}
                   <a
                     href={project.link}
                     target="_blank"
@@ -92,7 +94,6 @@ export const Projects = () => {
                     <ArrowUpRight className="w-5 h-5" />
                   </a>
 
-                  {/* GitHub */}
                   <a
                     href={project.github}
                     target="_blank"
